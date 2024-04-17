@@ -93,7 +93,7 @@ class UDP_Server:
             message = message.encode('utf-8')
         response = message + f':{checksum}'.encode('utf-8')
         if self.should_corrupt:
-            num_of_random_changes = random.randint(0 ,10)
+            num_of_random_changes = random.randint(0 ,100)
             if num_of_random_changes < 3:
                 response = self.modify_bytes(response, num_of_random_changes)
         self.UDP_Server_Socket.sendto(response, address)
